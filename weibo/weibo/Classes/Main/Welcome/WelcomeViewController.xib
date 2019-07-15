@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="weibo" customModuleProvider="target">
+            <connections>
+                <outlet property="iconView" destination="cUd-Wq-4L4" id="29G-50-Ezq"/>
+                <outlet property="iconViewBottomCons" destination="2nu-Bo-EtD" id="d20-K6-YvI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad_background" translatesAutoresizingMaskIntoConstraints="NO" id="AbS-Cb-G3K">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_default_big" translatesAutoresizingMaskIntoConstraints="NO" id="cUd-Wq-4L4">
+                    <rect key="frame" x="142.5" y="427" width="90" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="90" id="43F-b8-HGi"/>
+                        <constraint firstAttribute="height" constant="90" id="eOE-Ro-oGb"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="45"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎回来" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnP-v9-esF">
+                    <rect key="frame" x="156.5" y="537" width="62" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cUd-Wq-4L4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1am-cs-eWP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cUd-Wq-4L4" secondAttribute="bottom" constant="150" id="2nu-Bo-EtD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AbS-Cb-G3K" secondAttribute="bottom" id="BuX-fN-zER"/>
+                <constraint firstItem="AbS-Cb-G3K" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GhZ-M6-qNR"/>
+                <constraint firstItem="VnP-v9-esF" firstAttribute="top" secondItem="cUd-Wq-4L4" secondAttribute="bottom" constant="20" id="UJ6-Q2-mia"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AbS-Cb-G3K" secondAttribute="trailing" id="WMe-XX-91X"/>
+                <constraint firstItem="VnP-v9-esF" firstAttribute="centerX" secondItem="cUd-Wq-4L4" secondAttribute="centerX" id="k6N-Wt-yuE"/>
+                <constraint firstItem="AbS-Cb-G3K" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lEY-KQ-ZKu"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="49.275362318840585" y="62.276785714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ad_background" width="320" height="568"/>
+        <image name="avatar_default_big" width="85" height="85"/>
+    </resources>
+</document>
