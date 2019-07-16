@@ -29,6 +29,7 @@ class OAuthViewController: UIViewController {
 
         //设置web组件
         setupWebView()
+        
             }
 }
 
