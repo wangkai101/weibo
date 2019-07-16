@@ -29,7 +29,7 @@ class WelcomeViewController: UIViewController {
         UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 5.0, options: [], animations: {
             self.view.layoutIfNeeded()
         }) { (_) in
-            
+            UIApplication.shared.keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
         }
     }
 

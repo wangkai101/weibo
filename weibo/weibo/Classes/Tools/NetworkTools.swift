@@ -78,4 +78,26 @@ extension NetworkTools {
         }
     }
 }
-
+//MARK:- 请求用户数据
+extension NetworkTools {
+    func loadStatuses(finished : @escaping ([[String : Any]]?, Error?) -> ()) {
+        //获取请求的url
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        
+        //获取请求的参数
+        let parameters = ["access_token" : (UserAccountTool.shareIntance.account?.access_token)!]
+        
+        //请求数据
+        request(methodType: .GET, urlString: urlString, parameters: parameters) { (result, error) in
+            //获取字典的数据
+            guard let resultDict = result as? [String : Any] else {
+                finished(nil, error)
+                return
+            }
+            
+            //将数组数据回调给外界控制器
+            finished(resultDict["statuses"] as? [[String : Any]], error)
+        }
+        
+    }
+}

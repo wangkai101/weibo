@@ -28,6 +28,9 @@ class HomeViewController: BaseViewController {
        
         //设置导航栏的内容
         setupNavigationBar()
+        
+        //请求数据
+        loadStatuses()
     }
 }
 
@@ -69,3 +72,25 @@ extension HomeViewController {
     }
 }
 
+//MARK:-请求数据
+extension HomeViewController {
+    private func loadStatuses() {
+        NetworkTools.shareInstance.loadStatuses { (result, error) in
+            //错误校验
+            if error != nil {
+                print(error)
+                return
+            }
+            
+            //获取可选类型中的数据
+            guard let resultArray = result else {
+                return
+            }
+            
+            //便利微博对应的字典
+            for statusDict in resultArray {
+                print(statusDict)
+            }
+        }
+    }
+}
