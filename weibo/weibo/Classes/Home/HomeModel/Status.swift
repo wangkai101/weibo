@@ -10,7 +10,17 @@ import UIKit
 
 @objcMembers class Status: NSObject {
     //MARK:-属性
-    var created_at : String?                   // 微博创建时间
+    var created_at : String? {                 // 微博创建时间
+        didSet {
+            //nil值校验
+            guard let created_at = created_at else {
+                return
+            }
+            
+            //对时间进行处理
+            createAtText = Date.createDateString(createAtStr: created_at)
+        }
+    }
     var source : String? {                     // 微博来源
         didSet {
             //nil值校验
@@ -32,6 +42,8 @@ import UIKit
     
     //MARK:- 对数据处理的属性
     var sourceText : String?
+    var createAtText : String?
+    
     
     //MARK:- 自定义构造函数
     init(dict : [String : Any]) {

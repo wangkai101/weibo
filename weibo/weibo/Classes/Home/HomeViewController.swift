@@ -32,7 +32,7 @@ class HomeViewController: BaseViewController {
         
         //请求数据
         loadStatuses()
-        
+       
     }
 }
 
