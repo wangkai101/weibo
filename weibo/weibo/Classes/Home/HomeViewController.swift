@@ -16,7 +16,7 @@ class HomeViewController: BaseViewController {
     private lazy var popoverAnimator : Popoveranimator = Popoveranimator {[weak self] (presented) in
         self?.titleBtn.isSelected = presented
     }
-    private lazy var statuses : [Status] = [Status]()
+    private lazy var viewModels : [StatusViewModel] = [StatusViewModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,11 +88,12 @@ extension HomeViewController {
             guard let resultArray = result else {
                 return
             }
-            //便利微博对应的字典
+            //遍历微博对应的字典
             for statusDict in resultArray {
                 let status = Status(dict: statusDict)
-                self.statuses.append(status)
-            }
+                let viewModel = StatusViewModel(status: status)
+                self.viewModels.append(viewModel)
+                }
             
             //刷新表格
             self.tableView.reloadData()
@@ -103,16 +104,16 @@ extension HomeViewController {
 //MARK:- tableView的数据源方法
 extension HomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statuses.count
+        return viewModels.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //创建cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCellID")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCellID") as! HomeViewCell
         
         //给cell设置数据
-        let status = statuses[indexPath.row]
-        cell.textLabel?.text = status.text
+        cell.viewModel = viewModels[indexPath.row]
+        
         
         return cell
     }

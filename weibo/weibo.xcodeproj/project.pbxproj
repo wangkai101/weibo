@@ -24,6 +24,9 @@
 		831DDFD822BA8E39009EF8AA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831DDFD722BA8E39009EF8AA /* MainViewController.swift */; };
 		831DDFDA22BA8ED9009EF8AA /* UIBtton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831DDFD922BA8ED9009EF8AA /* UIBtton-Extension.swift */; };
 		831F5C0322DEEABA009EE421 /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831F5C0222DEEABA009EE421 /* Date-Extension.swift */; };
+		832400E122E0206000D21D9D /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832400E022E0206000D21D9D /* Users.swift */; };
+		8324010122E09EBA00D21D9D /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8324010022E09EB900D21D9D /* StatusViewModel.swift */; };
+		8324010322E0A9A600D21D9D /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8324010222E0A9A600D21D9D /* HomeViewCell.swift */; };
 		8324BD4422BB5CCB00C859D6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8324BD4322BB5CCB00C859D6 /* BaseViewController.swift */; };
 		8324BD4622BB5D8100C859D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8324BD4522BB5D8100C859D6 /* HomeViewController.swift */; };
 		8324BD4822BB5E2400C859D6 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8324BD4722BB5E2400C859D6 /* VisitorView.swift */; };
@@ -64,6 +67,9 @@
 		831DDFD722BA8E39009EF8AA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		831DDFD922BA8ED9009EF8AA /* UIBtton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBtton-Extension.swift"; sourceTree = "<group>"; };
 		831F5C0222DEEABA009EE421 /* Date-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
+		832400E022E0206000D21D9D /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		8324010022E09EB900D21D9D /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		8324010222E0A9A600D21D9D /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		8324BD4322BB5CCB00C859D6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8324BD4522BB5D8100C859D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8324BD4722BB5E2400C859D6 /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 				834FB57622C3795C00652F5F /* UIPopover */,
 				831DDFCA22BA8D9F009EF8AA /* Home.storyboard */,
 				8324BD4522BB5D8100C859D6 /* HomeViewController.swift */,
+				8324010222E0A9A600D21D9D /* HomeViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -236,6 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				832A137822DD6245007513B8 /* Status.swift */,
+				832400E022E0206000D21D9D /* Users.swift */,
+				8324010022E09EB900D21D9D /* StatusViewModel.swift */,
 			);
 			path = HomeModel;
 			sourceTree = "<group>";
@@ -414,12 +423,15 @@
 				830ADA5322C3D54100AAD37E /* PoppresentationController.swift in Sources */,
 				831DDFD822BA8E39009EF8AA /* MainViewController.swift in Sources */,
 				831F5C0322DEEABA009EE421 /* Date-Extension.swift in Sources */,
+				8324010122E09EBA00D21D9D /* StatusViewModel.swift in Sources */,
+				8324010322E0A9A600D21D9D /* HomeViewCell.swift in Sources */,
 				83003ADD22C669F000C83128 /* Popoveranimator.swift in Sources */,
 				83B440E222C067E300409D70 /* DiscoverViewController.swift in Sources */,
 				834FB57D22C3812000652F5F /* PopViewController.swift in Sources */,
 				83B440E422C067F800409D70 /* ProfileViewController.swift in Sources */,
 				831DDFDA22BA8ED9009EF8AA /* UIBtton-Extension.swift in Sources */,
 				83B440E022C067C700409D70 /* MessageViewController.swift in Sources */,
+				832400E122E0206000D21D9D /* Users.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
