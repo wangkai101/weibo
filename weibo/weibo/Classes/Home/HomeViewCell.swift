@@ -75,10 +75,6 @@ class HomeViewCell: UITableViewCell {
         //设置微博正文的宽度约束
         contentLabelWCons.constant = UIScreen.main.bounds.width - 2 * edgeMargin
         
-        //取出picView对应的layout
-        let layout = picView.collectionViewLayout as! UICollectionViewFlowLayout
-        let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
-        layout.itemSize = CGSize(width: imageViewWH, height: imageViewWH)
     }
 
 
@@ -92,12 +88,29 @@ extension HomeViewCell {
         if count == 0 {
             return CGSize.zero
         }
-        //单张配图
         
+        //取出picView对应的layout
+        let layout = picView.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        
+        //单张配图
+        if count == 1 {
+            //取出图片
+            let urlString = viewModel?.picURLs.last?.absoluteString
+            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: urlString)
+            
+            //设置一张图片时layout的itemSize
+            layout.itemSize = CGSize(width: image!.size.width * 2, height: image!.size.height * 2)
+        
+            return CGSize(width: image!.size.width * 2, height: image!.size.height * 2)
+        }
         
         //计算出来imageViewWH
         let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
         
+        //设置其他张图片时itemSize
+        layout.itemSize = CGSize(width: imageViewWH, height: imageViewWH)
+
         //四张配图
         if count == 4 {
             let picViewWH = imageViewWH * 2 + itemMargin
