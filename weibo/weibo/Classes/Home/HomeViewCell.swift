@@ -14,6 +14,7 @@ private let itemMargin : CGFloat = 10
 
 class HomeViewCell: UITableViewCell {
     
+    @IBOutlet weak var bottomToolView: UIView!
     @IBOutlet weak var retweetedBgView: UIView!
     @IBOutlet weak var retweetedContentLabel: UILabel!
     @IBOutlet weak var picView: PicCollectionView!
@@ -28,6 +29,9 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var contentLabelWCons: NSLayoutConstraint!
     @IBOutlet weak var picViewHCons: NSLayoutConstraint!
     @IBOutlet weak var picViewWCons: NSLayoutConstraint!
+    @IBOutlet weak var picViewBottomCons: NSLayoutConstraint!
+    @IBOutlet weak var retweetedContentLabelTopCons: NSLayoutConstraint!
+    
     
     //MARK:-自定义属性
     var viewModel : StatusViewModel? {
@@ -73,6 +77,8 @@ class HomeViewCell: UITableViewCell {
                 if let screenName = viewModel.status?.retweeted_status?.user?.screen_name, let retweetedText = viewModel.status?.retweeted_status?.text {
                     retweetedContentLabel.text = "@" + "\(screenName): " + retweetedText
                     
+                //设置转发正文距离顶部的约束
+                   retweetedContentLabelTopCons.constant = 15
                 //设置背景显示
                     retweetedBgView.isHidden = false
                 }
@@ -80,9 +86,19 @@ class HomeViewCell: UITableViewCell {
                 retweetedContentLabel.text = nil
                 
                 retweetedBgView.isHidden = true
+                
+                retweetedContentLabelTopCons.constant = 0
+            }
+            
+            //计算cell的高度
+            if viewModel.cellHeight == 0 {
+                //强制布局
+                layoutIfNeeded()
+                
+                //获取底部工具栏最大y值
+                viewModel.cellHeight = bottomToolView.frame.maxY
             }
         }
-        
     }
     
     
@@ -103,9 +119,12 @@ extension HomeViewCell {
     private func calculatePicViewSize(count : Int) -> CGSize {
         //没有配图
         if count == 0 {
+            picViewBottomCons.constant = 0
             return CGSize.zero
         }
-        
+        //有配图需要改约束值
+        picViewBottomCons.constant = 10
+
         //取出picView对应的layout
         let layout = picView.collectionViewLayout as! UICollectionViewFlowLayout
         

@@ -80,7 +80,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jn-5I-Iuv" userLabel="底部工具栏">
-                                            <rect key="frame" x="0.0" y="222" width="375" height="40"/>
+                                            <rect key="frame" x="0.0" y="159" width="375" height="40"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="e3g-2L-zl6">
                                                     <rect key="frame" x="0.0" y="1" width="375" height="32"/>
@@ -130,11 +130,11 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UyZ-2Q-0dy" userLabel="转发view">
-                                            <rect key="frame" x="0.0" y="86" width="375" height="136"/>
+                                            <rect key="frame" x="0.0" y="86" width="375" height="73"/>
                                             <color key="backgroundColor" red="0.9685931414517861" green="0.96682730241069026" blue="0.9685931414517861" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hkt-G5-GH0" userLabel="图片view" customClass="PicCollectionView" customModule="weibo" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="184" width="83" height="28"/>
+                                            <rect key="frame" x="15" y="121" width="83" height="28"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="mxz-vX-dg2"/>
@@ -172,7 +172,7 @@
                                             </cells>
                                         </collectionView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天天气确实不错" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="act-15-ygN" userLabel="转发正文">
-                                            <rect key="frame" x="15" y="93" width="150" height="81"/>
+                                            <rect key="frame" x="15" y="93" width="150" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -201,7 +201,6 @@
                                         <constraint firstItem="UyZ-2Q-0dy" firstAttribute="leading" secondItem="wZK-vB-e9G" secondAttribute="leading" id="cgm-Ux-IWy"/>
                                         <constraint firstItem="act-15-ygN" firstAttribute="width" secondItem="Wzu-N1-qq9" secondAttribute="width" id="dal-ut-I8m"/>
                                         <constraint firstItem="jdw-SM-OLY" firstAttribute="trailing" secondItem="uZj-Xo-wrn" secondAttribute="trailing" id="gxw-oQ-Ynu"/>
-                                        <constraint firstAttribute="bottom" secondItem="9Jn-5I-Iuv" secondAttribute="bottom" id="hYT-h2-L0b"/>
                                         <constraint firstItem="UyZ-2Q-0dy" firstAttribute="top" secondItem="Wzu-N1-qq9" secondAttribute="bottom" constant="8" id="olc-5h-7J2"/>
                                         <constraint firstItem="rua-Lx-3gi" firstAttribute="leading" secondItem="Ynn-6e-Fd7" secondAttribute="trailing" constant="8" id="ppC-K7-BVT"/>
                                         <constraint firstItem="hkt-G5-GH0" firstAttribute="leading" secondItem="uZj-Xo-wrn" secondAttribute="leading" id="tbD-YF-BwZ"/>
@@ -211,14 +210,17 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bottomToolView" destination="9Jn-5I-Iuv" id="VFj-Yo-fkk"/>
                                     <outlet property="contentLabel" destination="Wzu-N1-qq9" id="9up-pr-aF7"/>
                                     <outlet property="contentLabelWCons" destination="IOV-oE-wXX" id="rA0-10-lIz"/>
                                     <outlet property="iconView" destination="uZj-Xo-wrn" id="ZEK-w1-iIb"/>
                                     <outlet property="picView" destination="hkt-G5-GH0" id="bPm-AD-tin"/>
+                                    <outlet property="picViewBottomCons" destination="Vc0-hG-38a" id="BaT-eA-wdy"/>
                                     <outlet property="picViewHCons" destination="mxz-vX-dg2" id="Lvw-hV-bzO"/>
                                     <outlet property="picViewWCons" destination="zQt-01-dJf" id="aqQ-rY-vZK"/>
                                     <outlet property="retweetedBgView" destination="UyZ-2Q-0dy" id="qgj-yc-brR"/>
-                                    <outlet property="retweetedContentLabel" destination="act-15-ygN" id="zQe-Lp-UPf"/>
+                                    <outlet property="retweetedContentLabel" destination="act-15-ygN" id="0v4-t8-duX"/>
+                                    <outlet property="retweetedContentLabelTopCons" destination="w2h-Bv-KRW" id="BGX-Uq-AS2"/>
                                     <outlet property="screenNameLabel" destination="Ynn-6e-Fd7" id="huC-JF-w1i"/>
                                     <outlet property="sourceLabel" destination="GV8-D5-fic" id="z9L-m1-pPz"/>
                                     <outlet property="timeLabel" destination="4dq-0W-9iy" id="yDf-6T-R1Q"/>

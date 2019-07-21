@@ -11,6 +11,8 @@ import UIKit
 class StatusViewModel: NSObject {
     //MARK:-定义属性
     var status : Status?
+    var cellHeight : CGFloat = 0
+    
     
     //MARK:- 对数据处理的属性
     var sourceText : String?            //处理来源
