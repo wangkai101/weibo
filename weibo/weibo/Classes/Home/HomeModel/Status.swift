@@ -14,8 +14,9 @@ import UIKit
     var source : String?                       // 微博来源
     var text : String?                         // 微博正文
     var mid : Int = 0                          // 微博id
-    
-    var user : Users?
+    var user : Users?                          //微博对应的用户
+    var pic_urls : [[String : String]]?         //微博的配图
+      
     
     
     

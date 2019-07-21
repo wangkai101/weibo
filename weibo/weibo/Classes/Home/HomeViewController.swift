@@ -32,6 +32,9 @@ class HomeViewController: BaseViewController {
         
         //请求数据
         loadStatuses()
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
        
     }
 }
