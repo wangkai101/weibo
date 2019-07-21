@@ -14,6 +14,7 @@ private let itemMargin : CGFloat = 10
 
 class HomeViewCell: UITableViewCell {
     
+    @IBOutlet weak var retweetedContentLabel: UILabel!
     @IBOutlet weak var picView: PicCollectionView!
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var verifiedView: UIImageView!
@@ -64,6 +65,15 @@ class HomeViewCell: UITableViewCell {
             
             //将picView数据传给picView
             picView.picURLs = viewModel.picURLs
+            
+            //设置转发微博的正文
+            if viewModel.status?.retweeted_status != nil {
+                if let screenName = viewModel.status?.retweeted_status?.user?.screen_name, let retweetedText = viewModel.status?.retweeted_status?.text {
+                    retweetedContentLabel.text = "@" + "\(screenName) :" + retweetedText
+                }
+            } else {
+                retweetedContentLabel.text = nil
+            }
         }
         
     }

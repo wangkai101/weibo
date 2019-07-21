@@ -70,10 +70,10 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今 Tina 天气不错哦" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzu-N1-qq9" userLabel="微博正文">
-                                            <rect key="frame" x="15" y="60" width="70" height="114"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="今 Tina 天气不错哦" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzu-N1-qq9" userLabel="微博正文">
+                                            <rect key="frame" x="15" y="60" width="150" height="18"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="70" id="IOV-oE-wXX"/>
+                                                <constraint firstAttribute="width" constant="150" id="IOV-oE-wXX"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
@@ -167,6 +167,12 @@
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天天气确实不错" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="act-15-ygN">
+                                            <rect key="frame" x="15" y="93" width="150" height="81"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Ynn-6e-Fd7" firstAttribute="top" secondItem="uZj-Xo-wrn" secondAttribute="top" id="4T1-Jb-odn"/>
@@ -176,21 +182,24 @@
                                         <constraint firstItem="4dq-0W-9iy" firstAttribute="leading" secondItem="Ynn-6e-Fd7" secondAttribute="leading" id="7lH-GX-2B0"/>
                                         <constraint firstItem="9Jn-5I-Iuv" firstAttribute="leading" secondItem="wZK-vB-e9G" secondAttribute="leading" id="8g1-rt-l4X"/>
                                         <constraint firstItem="GV8-D5-fic" firstAttribute="bottom" secondItem="4dq-0W-9iy" secondAttribute="bottom" id="8uO-Qv-vmf"/>
+                                        <constraint firstItem="act-15-ygN" firstAttribute="leading" secondItem="uZj-Xo-wrn" secondAttribute="leading" id="9L6-B6-SFH"/>
                                         <constraint firstItem="GV8-D5-fic" firstAttribute="leading" secondItem="4dq-0W-9iy" secondAttribute="trailing" constant="8" id="DWb-lb-s4b"/>
                                         <constraint firstAttribute="trailing" secondItem="9Jn-5I-Iuv" secondAttribute="trailing" id="FiH-PY-7jI"/>
+                                        <constraint firstItem="hkt-G5-GH0" firstAttribute="top" secondItem="act-15-ygN" secondAttribute="bottom" constant="10" id="Nh1-K5-cgV"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GV8-D5-fic" secondAttribute="trailing" constant="20" symbolic="YES" id="PbZ-5j-Fk2"/>
                                         <constraint firstItem="Ynn-6e-Fd7" firstAttribute="leading" secondItem="uZj-Xo-wrn" secondAttribute="trailing" constant="15" id="QW7-Ut-ahb"/>
                                         <constraint firstItem="jdw-SM-OLY" firstAttribute="bottom" secondItem="uZj-Xo-wrn" secondAttribute="bottom" id="RbO-uV-wd4"/>
                                         <constraint firstItem="9Jn-5I-Iuv" firstAttribute="top" secondItem="hkt-G5-GH0" secondAttribute="bottom" priority="700" constant="10" id="Vc0-hG-38a"/>
                                         <constraint firstItem="uZj-Xo-wrn" firstAttribute="leading" secondItem="wZK-vB-e9G" secondAttribute="leading" constant="15" id="Z3c-pT-QrQ"/>
                                         <constraint firstItem="uZj-Xo-wrn" firstAttribute="top" secondItem="wZK-vB-e9G" secondAttribute="top" constant="10" id="ab1-sZ-Ljr"/>
-                                        <constraint firstItem="hkt-G5-GH0" firstAttribute="top" secondItem="Wzu-N1-qq9" secondAttribute="bottom" constant="10" id="dDB-q3-K3W"/>
+                                        <constraint firstItem="act-15-ygN" firstAttribute="width" secondItem="Wzu-N1-qq9" secondAttribute="width" id="dal-ut-I8m"/>
                                         <constraint firstItem="jdw-SM-OLY" firstAttribute="trailing" secondItem="uZj-Xo-wrn" secondAttribute="trailing" id="gxw-oQ-Ynu"/>
                                         <constraint firstAttribute="bottom" secondItem="9Jn-5I-Iuv" secondAttribute="bottom" id="hYT-h2-L0b"/>
                                         <constraint firstItem="rua-Lx-3gi" firstAttribute="leading" secondItem="Ynn-6e-Fd7" secondAttribute="trailing" constant="8" id="ppC-K7-BVT"/>
                                         <constraint firstItem="hkt-G5-GH0" firstAttribute="leading" secondItem="uZj-Xo-wrn" secondAttribute="leading" id="tbD-YF-BwZ"/>
                                         <constraint firstAttribute="trailing" secondItem="9Jn-5I-Iuv" secondAttribute="trailing" id="vNm-ka-exK"/>
                                         <constraint firstItem="Wzu-N1-qq9" firstAttribute="top" secondItem="uZj-Xo-wrn" secondAttribute="bottom" constant="15" id="vQP-bn-ZaJ"/>
+                                        <constraint firstItem="act-15-ygN" firstAttribute="top" secondItem="Wzu-N1-qq9" secondAttribute="bottom" constant="15" id="w2h-Bv-KRW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -200,6 +209,7 @@
                                     <outlet property="picView" destination="hkt-G5-GH0" id="bPm-AD-tin"/>
                                     <outlet property="picViewHCons" destination="mxz-vX-dg2" id="Lvw-hV-bzO"/>
                                     <outlet property="picViewWCons" destination="zQt-01-dJf" id="aqQ-rY-vZK"/>
+                                    <outlet property="retweetedContentLabel" destination="act-15-ygN" id="zQe-Lp-UPf"/>
                                     <outlet property="screenNameLabel" destination="Ynn-6e-Fd7" id="huC-JF-w1i"/>
                                     <outlet property="sourceLabel" destination="GV8-D5-fic" id="z9L-m1-pPz"/>
                                     <outlet property="timeLabel" destination="4dq-0W-9iy" id="yDf-6T-R1Q"/>
