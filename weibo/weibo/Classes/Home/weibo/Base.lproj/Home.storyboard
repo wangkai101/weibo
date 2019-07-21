@@ -71,22 +71,22 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今 Tina 天气不错哦" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzu-N1-qq9" userLabel="微博正文">
-                                            <rect key="frame" x="15" y="60" width="129" height="114"/>
+                                            <rect key="frame" x="15" y="60" width="70" height="114"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="129" id="1Q9-fe-O6j"/>
+                                                <constraint firstAttribute="width" constant="70" id="IOV-oE-wXX"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jn-5I-Iuv">
-                                            <rect key="frame" x="0.0" y="222" width="129" height="40"/>
+                                            <rect key="frame" x="0.0" y="222" width="375" height="40"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="e3g-2L-zl6">
-                                                    <rect key="frame" x="0.0" y="1" width="129" height="32"/>
+                                                    <rect key="frame" x="0.0" y="1" width="375" height="32"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adc-gu-UY5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="43" height="32"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="125" height="32"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="tZm-5k-hT3"/>
@@ -99,7 +99,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nea-gO-khi">
-                                                            <rect key="frame" x="43" y="0.0" width="43" height="32"/>
+                                                            <rect key="frame" x="125" y="0.0" width="125" height="32"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -109,7 +109,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiE-fE-hsY">
-                                                            <rect key="frame" x="86" y="0.0" width="43" height="32"/>
+                                                            <rect key="frame" x="250" y="0.0" width="125" height="32"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -178,6 +178,7 @@
                                         <constraint firstItem="GV8-D5-fic" firstAttribute="bottom" secondItem="4dq-0W-9iy" secondAttribute="bottom" id="8uO-Qv-vmf"/>
                                         <constraint firstItem="GV8-D5-fic" firstAttribute="leading" secondItem="4dq-0W-9iy" secondAttribute="trailing" constant="8" id="DWb-lb-s4b"/>
                                         <constraint firstAttribute="trailing" secondItem="9Jn-5I-Iuv" secondAttribute="trailing" id="FiH-PY-7jI"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GV8-D5-fic" secondAttribute="trailing" constant="20" symbolic="YES" id="PbZ-5j-Fk2"/>
                                         <constraint firstItem="Ynn-6e-Fd7" firstAttribute="leading" secondItem="uZj-Xo-wrn" secondAttribute="trailing" constant="15" id="QW7-Ut-ahb"/>
                                         <constraint firstItem="jdw-SM-OLY" firstAttribute="bottom" secondItem="uZj-Xo-wrn" secondAttribute="bottom" id="RbO-uV-wd4"/>
                                         <constraint firstItem="9Jn-5I-Iuv" firstAttribute="top" secondItem="hkt-G5-GH0" secondAttribute="bottom" priority="700" constant="10" id="Vc0-hG-38a"/>
@@ -190,12 +191,11 @@
                                         <constraint firstItem="hkt-G5-GH0" firstAttribute="leading" secondItem="uZj-Xo-wrn" secondAttribute="leading" id="tbD-YF-BwZ"/>
                                         <constraint firstAttribute="trailing" secondItem="9Jn-5I-Iuv" secondAttribute="trailing" id="vNm-ka-exK"/>
                                         <constraint firstItem="Wzu-N1-qq9" firstAttribute="top" secondItem="uZj-Xo-wrn" secondAttribute="bottom" constant="15" id="vQP-bn-ZaJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="Wzu-N1-qq9" secondAttribute="trailing" constant="15" id="y8F-s0-VEj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contentLabel" destination="Wzu-N1-qq9" id="9up-pr-aF7"/>
-                                    <outlet property="contentLabelWCons" destination="1Q9-fe-O6j" id="V6f-qJ-5V9"/>
+                                    <outlet property="contentLabelWCons" destination="IOV-oE-wXX" id="rA0-10-lIz"/>
                                     <outlet property="iconView" destination="uZj-Xo-wrn" id="ZEK-w1-iIb"/>
                                     <outlet property="picView" destination="hkt-G5-GH0" id="bPm-AD-tin"/>
                                     <outlet property="picViewHCons" destination="mxz-vX-dg2" id="Lvw-hV-bzO"/>

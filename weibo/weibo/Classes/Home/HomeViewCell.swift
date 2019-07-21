@@ -73,7 +73,7 @@ class HomeViewCell: UITableViewCell {
         super.awakeFromNib()
         
         //设置微博正文的宽度约束
-        contentLabelWCons.constant = UIScreen.main.bounds.height - 2 * edgeMargin
+        contentLabelWCons.constant = UIScreen.main.bounds.width - 2 * edgeMargin
         
         //取出picView对应的layout
         let layout = picView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -92,6 +92,9 @@ extension HomeViewCell {
         if count == 0 {
             return CGSize.zero
         }
+        //单张配图
+        
+        
         //计算出来imageViewWH
         let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
         
