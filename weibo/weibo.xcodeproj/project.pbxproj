@@ -10,6 +10,7 @@
 		4CAB76AA23137457BEF8CF2F /* Pods_weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C43AD83F869575A5F35288 /* Pods_weibo.framework */; };
 		83003ADD22C669F000C83128 /* Popoveranimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83003ADC22C669F000C83128 /* Popoveranimator.swift */; };
 		830ADA5322C3D54100AAD37E /* PoppresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ADA5222C3D54100AAD37E /* PoppresentationController.swift */; };
+		830B801F22E40C5100315A83 /* PicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830B801E22E40C5100315A83 /* PicCollectionView.swift */; };
 		83105E6622DAFD4800E7ECB1 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83105E6522DAFD4800E7ECB1 /* NetworkTools.swift */; };
 		83105E6822DB3A1300E7ECB1 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83105E6722DB3A1300E7ECB1 /* UserAccount.swift */; };
 		831DDFB222BA891B009EF8AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831DDFB122BA891B009EF8AA /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 		00C69562E067C4D8FAE380B5 /* Pods-weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		83003ADC22C669F000C83128 /* Popoveranimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popoveranimator.swift; sourceTree = "<group>"; };
 		830ADA5222C3D54100AAD37E /* PoppresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoppresentationController.swift; sourceTree = "<group>"; };
+		830B801E22E40C5100315A83 /* PicCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicCollectionView.swift; sourceTree = "<group>"; };
 		83105E6522DAFD4800E7ECB1 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		83105E6722DB3A1300E7ECB1 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		831DDFAE22BA891B009EF8AA /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +214,7 @@
 				831DDFCA22BA8D9F009EF8AA /* Home.storyboard */,
 				8324BD4522BB5D8100C859D6 /* HomeViewController.swift */,
 				8324010222E0A9A600D21D9D /* HomeViewCell.swift */,
+				830B801E22E40C5100315A83 /* PicCollectionView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				8324010122E09EBA00D21D9D /* StatusViewModel.swift in Sources */,
 				8324010322E0A9A600D21D9D /* HomeViewCell.swift in Sources */,
 				83003ADD22C669F000C83128 /* Popoveranimator.swift in Sources */,
+				830B801F22E40C5100315A83 /* PicCollectionView.swift in Sources */,
 				83B440E222C067E300409D70 /* DiscoverViewController.swift in Sources */,
 				834FB57D22C3812000652F5F /* PopViewController.swift in Sources */,
 				83B440E422C067F800409D70 /* ProfileViewController.swift in Sources */,
