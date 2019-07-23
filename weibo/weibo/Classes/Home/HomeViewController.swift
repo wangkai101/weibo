@@ -37,7 +37,7 @@ class HomeViewController: BaseViewController {
         
         //布局header
         setupHeaderView()
-       
+        setupFooterView()
     }
 }
 
@@ -59,7 +59,7 @@ extension HomeViewController {
     
     private func setupHeaderView() {
         //创建headerView
-        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: Selector(("loadNewStatuses")))
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewStatuses))
         
         //设置header的属性
         header?.setTitle("下拉刷新", for: .idle)
@@ -71,6 +71,10 @@ extension HomeViewController {
         
         //进入刷新状态
         tableView.mj_header.beginRefreshing()
+    }
+    
+    private func setupFooterView() {
+        tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreStatuses))
     }
 }
 
@@ -102,18 +106,25 @@ extension HomeViewController {
     @objc private func loadNewStatuses() {
         loadStatuses(isNewData: true)
     }
+    @objc private func loadMoreStatuses() {
+        loadStatuses(isNewData: false)
+    }
     
     //加载微博数据
     private func loadStatuses(isNewData : Bool) {
         
-        //获取since_id
+        //获取since_id,max_id
         var since_id = 0
+        var max_id = 0
         if isNewData {
             since_id = viewModels.first?.status?.mid ?? 0
+        } else {
+            max_id = viewModels.last?.status?.mid ?? 0
+            max_id = max_id == 0 ? 0 : (max_id - 1)
         }
         
         //请求数据
-        NetworkTools.shareInstance.loadStatuses(since_id: since_id) { (result, error) in
+        NetworkTools.shareInstance.loadStatuses(since_id: since_id, max_id: max_id) { (result, error) in
             //错误校验
             if error != nil {
                 print(error)
@@ -132,8 +143,12 @@ extension HomeViewController {
                 tempViewModel.append(viewModel)
             }
             
-            //将数据g放入到成员变量的数组中
-            self.viewModels = tempViewModel + self.viewModels
+            //将数据放入到成员变量的数组中
+            if isNewData {
+                self.viewModels = tempViewModel + self.viewModels
+            } else {
+                self.viewModels += tempViewModel
+            }
             
             //缓存图片
             self.cacheImages(viewModels: tempViewModel)
@@ -163,6 +178,7 @@ extension HomeViewController {
             
             //停止刷新
             self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
         }
     }
 }

@@ -80,12 +80,12 @@ extension NetworkTools {
 }
 //MARK:- 请求用户数据
 extension NetworkTools {
-    func loadStatuses(since_id : Int, finished : @escaping ([[String : Any]]?, Error?) -> ()) {
+    func loadStatuses(since_id : Int, max_id : Int, finished : @escaping ([[String : Any]]?, Error?) -> ()) {
         //获取请求的url
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         
         //获取请求的参数
-        let parameters = ["access_token" : (UserAccountTool.shareIntance.account?.access_token)!, "since_id" : "\(since_id)"]
+        let parameters = ["access_token" : (UserAccountTool.shareIntance.account?.access_token)!, "since_id" : "\(since_id)", "max_id" : "\(max_id)"]
         
         //请求数据
         request(methodType: .GET, urlString: urlString, parameters: parameters) { (result, error) in
