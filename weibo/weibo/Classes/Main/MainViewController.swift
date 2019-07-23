@@ -38,6 +38,14 @@ extension MainViewController {
 //MARK:- 事件监听
 extension MainViewController {
     @objc func composeBtnClick() {
-        print("12")
+        //创建发布控制器
+        let composeVc = ComposeViewController()
+        
+//        //包装导航控制器
+//        let composeNav = UINavigationController(rootViewController: composeVc)
+        
+        //弹出控制器
+        present(composeVc, animated: true, completion: nil)
+        
     }
 }

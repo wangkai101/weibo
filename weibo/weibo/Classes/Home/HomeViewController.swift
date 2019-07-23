@@ -11,7 +11,6 @@ import SDWebImage
 import MJRefresh
 
 class HomeViewController: BaseViewController {
-
     
 //MARK:- 懒加载属性
     private lazy var titleBtn : TitleButton = TitleButton()
@@ -19,6 +18,7 @@ class HomeViewController: BaseViewController {
         self?.titleBtn.isSelected = presented
     }
     private lazy var viewModels : [StatusViewModel] = [StatusViewModel]()
+    private lazy var tipLabel : UILabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,9 @@ class HomeViewController: BaseViewController {
         //布局header
         setupHeaderView()
         setupFooterView()
+        
+        //设置提示的Label
+        setupTipLabel()
     }
 }
 
@@ -51,7 +54,7 @@ extension HomeViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "navigationbar_pop")
         
         //设置btitleView
-        titleBtn.setTitle("wanger", for: .normal)
+        titleBtn.setTitle(UserAccountTool.shareIntance.account?.screen_name, for: .normal)
         titleBtn.addTarget(self, action: #selector(titleBtnClick), for: .touchUpInside)
         navigationItem.titleView = titleBtn
 
@@ -75,6 +78,22 @@ extension HomeViewController {
     
     private func setupFooterView() {
         tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreStatuses))
+    }
+    
+    private func setupTipLabel() {
+        //将tiplabel添加到父控件中
+        navigationController?.navigationBar.insertSubview(tipLabel, at: 0)
+        
+        //设置tiplabel的frame
+        tipLabel.frame = CGRect(x: 0, y: 10, width: UIScreen.main.bounds.width, height: 30)
+        
+        //设置属性
+        tipLabel.backgroundColor = UIColor.orange
+        tipLabel.textColor = UIColor.white
+        tipLabel.font = UIFont.systemFont(ofSize: 14)
+        tipLabel.textAlignment = .center
+        tipLabel.isHidden = true
+        
     }
 }
 
@@ -179,6 +198,28 @@ extension HomeViewController {
             //停止刷新
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
+            
+            //显示提示的label
+            self.shouTipLabel(count: viewModels.count)
+            
+        }
+    }
+    
+    //显示提示的label
+    private func shouTipLabel(count : Int) {
+        //设置属性
+        tipLabel.isHidden = false
+        tipLabel.text = count == 0 ? "没有新数据" : "\(count) 条新微博"
+        
+        //执行动画
+        UIView.animate(withDuration: 1.0, animations: {
+            self.tipLabel.frame.origin.y = 44
+        }) { (_) in
+            UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
+                self.tipLabel.frame.origin.y = 10
+            }, completion: { (_) in
+                self.tipLabel.isHidden = true
+            })
         }
     }
 }
