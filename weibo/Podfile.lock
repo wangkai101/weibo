@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - MJRefresh (3.1.15.6)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -22,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - MJRefresh
   - SDWebImage
   - SnapKit
   - SVProgressHUD
@@ -29,16 +31,18 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - MJRefresh
     - SDWebImage
     - SnapKit
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 9d3cdf72b2565096f923d8b49b8ec90985b26480
+PODFILE CHECKSUM: 42ce2ae2be9de90713aea3d2b1db59f0d25bd8dd
 
 COCOAPODS: 1.5.3
