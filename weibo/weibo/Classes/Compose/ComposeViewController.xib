@@ -12,10 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController" customModule="weibo" customModuleProvider="target">
             <connections>
+                <outlet property="picPickerView" destination="bRq-Zw-iGt" id="x77-bs-uGn"/>
+                <outlet property="picPickerViewHeightCons" destination="8Pi-y1-C8t" id="1vz-om-Dfn"/>
                 <outlet property="screenNameLabel" destination="6ir-9A-DBB" id="fWT-Ig-fiK"/>
                 <outlet property="sendItemBtn" destination="qeK-Ad-VDb" id="3w8-vd-Uzo"/>
                 <outlet property="textView" destination="jrW-8u-ZQj" id="KLY-G4-knA"/>
-                <outlet property="toolBarBottomCons" destination="MbQ-NA-6ka" id="WFG-Iq-oj5"/>
+                <outlet property="toolBarBottomCons" destination="MbQ-NA-6ka" id="mML-6O-EDR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,7 +37,7 @@
                                     <action selector="closeItemClick:" destination="-1" id="jAb-8m-4v4"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="发送" style="plain" id="qeK-Ad-VDb">
+                            <barButtonItem key="rightBarButtonItem" enabled="NO" title="发送" style="plain" id="qeK-Ad-VDb">
                                 <connections>
                                     <action selector="sendItemClick:" destination="-1" id="uxb-e1-806"/>
                                 </connections>
@@ -69,6 +71,19 @@
                         <outlet property="delegate" destination="-1" id="8OL-Jm-20f"/>
                     </connections>
                 </textView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bRq-Zw-iGt" customClass="PicPickerCollectionView" customModule="weibo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="568" width="320" height="0.0"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="8Pi-y1-C8t"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="pQk-tm-6Xz">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4M-Fo-4T8">
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <constraints>
@@ -82,6 +97,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_toolbar_picture"/>
                                 <state key="highlighted" image="compose_toolbar_picture_highlighted"/>
+                                <connections>
+                                    <action selector="picPicker" destination="-1" eventType="touchUpInside" id="yNq-Z3-9NM"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="3gD-Vb-cM1"/>
@@ -133,10 +151,13 @@
                 <constraint firstAttribute="trailing" secondItem="uwl-R7-hp2" secondAttribute="trailing" id="HBe-aw-ltJ"/>
                 <constraint firstItem="Q4M-Fo-4T8" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="HoY-ST-w3A"/>
                 <constraint firstItem="Cek-iX-4tg" firstAttribute="centerX" secondItem="uwl-R7-hp2" secondAttribute="centerX" id="Ign-in-c6B"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bRq-Zw-iGt" secondAttribute="bottom" id="Kbj-wh-ORN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bRq-Zw-iGt" secondAttribute="trailing" id="L0L-7O-duQ"/>
                 <constraint firstItem="Q4M-Fo-4T8" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="MbQ-NA-6ka"/>
                 <constraint firstItem="Cek-iX-4tg" firstAttribute="centerY" secondItem="uwl-R7-hp2" secondAttribute="centerY" id="Oee-uX-zAo"/>
                 <constraint firstItem="uwl-R7-hp2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TQZ-EC-8pj"/>
                 <constraint firstItem="jrW-8u-ZQj" firstAttribute="top" secondItem="uwl-R7-hp2" secondAttribute="bottom" constant="2" id="eDH-an-xYS"/>
+                <constraint firstItem="bRq-Zw-iGt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nHP-Nr-Vm3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jrW-8u-ZQj" secondAttribute="trailing" id="ohp-yz-yp9"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

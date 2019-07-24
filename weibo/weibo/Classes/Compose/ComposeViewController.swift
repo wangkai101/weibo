@@ -10,22 +10,27 @@ import UIKit
 
 class ComposeViewController: UIViewController {
     
-
+    private lazy var images : [UIImage] = [UIImage]()
+    
     @IBOutlet weak var textView: ComposeTextView!
     @IBOutlet weak var sendItemBtn: UIBarButtonItem!
-        @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var picPickerView: PicPickerCollectionView!
     
+
     //约束的属性
     @IBOutlet weak var toolBarBottomCons: NSLayoutConstraint!
+    @IBOutlet weak var picPickerViewHeightCons: NSLayoutConstraint!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //设置ui
         setupUI()
-        
-        //监听键盘弹出通知
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //监听通知
+        setupNotification()
+    
         
     }
         
@@ -44,12 +49,18 @@ class ComposeViewController: UIViewController {
 //MARK:- 设置ui界面
 extension ComposeViewController {
     private func setupUI() {
-        sendItemBtn.isEnabled = false
         
         //更新title用户昵称
         screenNameLabel.text = UserAccountTool.shareIntance.account?.screen_name
-
+    }
+    
+    //监听通知
+    private func setupNotification() {
+        //监听键盘弹出通知
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
+        //监听点击添加图片的通知
+        NotificationCenter.default.addObserver(self, selector: #selector(addPhotoClick), name: NSNotification.Name(rawValue: PicPickerAddPhotoNote), object: nil)
     }
 }
 
@@ -75,15 +86,74 @@ extension ComposeViewController {
         
         //计算工具栏距离底部的间距
         let margin = UIScreen.main.bounds.height - y
-        
+
         //执行动画
         toolBarBottomCons.constant = -margin
         UIView.animate(withDuration: duration) {
             self.view.layoutIfNeeded()
         }
     }
+    
+    @IBAction func picPicker() {
+        //退出键盘
+        textView.resignFirstResponder()
+        
+        
+
+        //执行动画
+        picPickerViewHeightCons.constant = UIScreen.main.bounds.height * 0.65
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+        
+        //addPhotoClick()
+    }
 }
 
+//MARK:- 添加照片和删除照片的事件
+extension ComposeViewController {
+    @objc private func addPhotoClick() {
+        //判断数据源是否可用
+        if !UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            return
+        }
+        
+        //创建照片选择控制器
+        let ipc = UIImagePickerController()
+        
+        //设置照片源
+        ipc.sourceType = .photoLibrary
+        
+        //设置代理
+        ipc.delegate = self
+        
+        //弹出选择照片的控制器
+        present(ipc, animated: true, completion: nil)
+        
+    }
+}
+
+//MARK:-UIImagePickerController的代理方法
+extension ComposeViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //获取选中的照片
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        
+        //展示照片
+        images.append(image)
+        
+        //将数组赋值给collectionView，让其展示数据
+        picPickerView.images = images
+        
+        //判断发送按钮是否能够点击
+        if images.count != 0 {
+            sendItemBtn.isEnabled = true
+        }
+        //退出选中照片控制器
+        dismiss(animated: true, completion: nil)
+        
+    }
+}
 
 
 //MARK:- UITextView的代理方法

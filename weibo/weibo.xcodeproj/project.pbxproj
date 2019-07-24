@@ -49,6 +49,9 @@
 		83CD9F8122E72CF80017B757 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CD9F7F22E72CF80017B757 /* ComposeViewController.swift */; };
 		83CD9F8222E72CF80017B757 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CD9F8022E72CF80017B757 /* ComposeViewController.xib */; };
 		83E68F9122E8004F0007BAA9 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E68F9022E8004F0007BAA9 /* ComposeTextView.swift */; };
+		83E68F9422E851B00007BAA9 /* PicPickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E68F9322E851B00007BAA9 /* PicPickerCollectionView.swift */; };
+		83E68F9722E879A20007BAA9 /* PicPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E68F9522E879A20007BAA9 /* PicPickerViewCell.swift */; };
+		83E68F9822E879A20007BAA9 /* PicPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E68F9622E879A20007BAA9 /* PicPickerViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +99,9 @@
 		83CD9F7F22E72CF80017B757 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		83CD9F8022E72CF80017B757 /* ComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		83E68F9022E8004F0007BAA9 /* ComposeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
+		83E68F9322E851B00007BAA9 /* PicPickerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPickerCollectionView.swift; sourceTree = "<group>"; };
+		83E68F9522E879A20007BAA9 /* PicPickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPickerViewCell.swift; sourceTree = "<group>"; };
+		83E68F9622E879A20007BAA9 /* PicPickerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PicPickerViewCell.xib; sourceTree = "<group>"; };
 		8BEC9F215F71DB5B38A9C652 /* Pods-weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.release.xcconfig"; sourceTree = "<group>"; };
 		C6C43AD83F869575A5F35288 /* Pods_weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -293,11 +299,22 @@
 		83CD9F7E22E72CA20017B757 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				83E68F9222E8511B0007BAA9 /* PicPicker */,
 				83CD9F7F22E72CF80017B757 /* ComposeViewController.swift */,
 				83CD9F8022E72CF80017B757 /* ComposeViewController.xib */,
 				83E68F9022E8004F0007BAA9 /* ComposeTextView.swift */,
 			);
 			path = Compose;
+			sourceTree = "<group>";
+		};
+		83E68F9222E8511B0007BAA9 /* PicPicker */ = {
+			isa = PBXGroup;
+			children = (
+				83E68F9322E851B00007BAA9 /* PicPickerCollectionView.swift */,
+				83E68F9522E879A20007BAA9 /* PicPickerViewCell.swift */,
+				83E68F9622E879A20007BAA9 /* PicPickerViewCell.xib */,
+			);
+			path = PicPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +384,7 @@
 				831DDFCE22BA8DB4009EF8AA /* Message.storyboard in Resources */,
 				831DDFB722BA891B009EF8AA /* Main.storyboard in Resources */,
 				836A524B22DCB98A00683B65 /* WelcomeViewController.xib in Resources */,
+				83E68F9822E879A20007BAA9 /* PicPickerViewCell.xib in Resources */,
 				831DDFD122BA8DC5009EF8AA /* Add.storyboard in Resources */,
 				8385E15522C9E6F200554A42 /* OAuthViewController.xib in Resources */,
 				831DDFD322BA8DD9009EF8AA /* Discover.storyboard in Resources */,
@@ -447,7 +465,9 @@
 				830ADA5322C3D54100AAD37E /* PoppresentationController.swift in Sources */,
 				831DDFD822BA8E39009EF8AA /* MainViewController.swift in Sources */,
 				831F5C0322DEEABA009EE421 /* Date-Extension.swift in Sources */,
+				83E68F9422E851B00007BAA9 /* PicPickerCollectionView.swift in Sources */,
 				8324010122E09EBA00D21D9D /* StatusViewModel.swift in Sources */,
+				83E68F9722E879A20007BAA9 /* PicPickerViewCell.swift in Sources */,
 				8324010322E0A9A600D21D9D /* HomeViewCell.swift in Sources */,
 				83003ADD22C669F000C83128 /* Popoveranimator.swift in Sources */,
 				830B801F22E40C5100315A83 /* PicCollectionView.swift in Sources */,
