@@ -8,30 +8,49 @@
 
 import UIKit
 
-    class ComposeViewController: UIViewController, UITextViewDelegate {
+class ComposeViewController: UIViewController {
     
-        @IBOutlet weak var textView: UITextView!
-        @IBOutlet weak var placeHolderLabel: UILabel!
-        @IBOutlet weak var sendItemBtn: UIBarButtonItem!
+
+    @IBOutlet weak var textView: ComposeTextView!
+    @IBOutlet weak var sendItemBtn: UIBarButtonItem!
         @IBOutlet weak var screenNameLabel: UILabel!
-        
+    
+    //约束的属性
+    @IBOutlet weak var toolBarBottomCons: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.delegate = self
+        //设置ui
+        setupUI()
         
-        sendItemBtn.isEnabled = false
+        //监听键盘弹出通知
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        screenNameLabel.text = UserAccountTool.shareIntance.account?.screen_name
-        textView.textContainerInset = UIEdgeInsets(top: 8, left: 7, bottom: 0, right: 7)
+    }
         
-        
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            
+            textView.becomeFirstResponder()
+        }
+    
+    //移除通知
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
 //MARK:- 设置ui界面
 extension ComposeViewController {
-    
+    private func setupUI() {
+        sendItemBtn.isEnabled = false
+        
+        //更新title用户昵称
+        screenNameLabel.text = UserAccountTool.shareIntance.account?.screen_name
+
+        
+    }
 }
 
 
@@ -45,12 +64,39 @@ extension ComposeViewController {
     @IBAction func sendItemClick(_ sender: Any) {
         print("发送")
     }
-}
-
-//实现textView的协议
-extension ComposeViewController {
-    //当点击文本框时，使占位label隐藏
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        placeHolderLabel.isHidden = true
+    
+    @objc private func keyboardWillChangeFrame(note : Notification) {
+        //获取动画执行的时间
+        let duration = note.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        
+        //获取键盘最终y值
+        let endFrame = (note.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let y = endFrame.origin.y
+        
+        //计算工具栏距离底部的间距
+        let margin = UIScreen.main.bounds.height - y
+        
+        //执行动画
+        toolBarBottomCons.constant = -margin
+        UIView.animate(withDuration: duration) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
+
+
+
+//MARK:- UITextView的代理方法
+extension ComposeViewController : UITextViewDelegate {
+    //当文本框发生改变
+    func textViewDidChange(_ textView: UITextView) {
+       self.textView.placeholderLaber.isHidden = textView.hasText
+        sendItemBtn.isEnabled = textView.hasText
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        textView.resignFirstResponder()
+    }
+    
+}
+

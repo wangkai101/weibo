@@ -48,6 +48,7 @@
 		83CA5B9722D9A8AD002487BD /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA5B9622D9A8AD002487BD /* Common.swift */; };
 		83CD9F8122E72CF80017B757 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CD9F7F22E72CF80017B757 /* ComposeViewController.swift */; };
 		83CD9F8222E72CF80017B757 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CD9F8022E72CF80017B757 /* ComposeViewController.xib */; };
+		83E68F9122E8004F0007BAA9 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E68F9022E8004F0007BAA9 /* ComposeTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		83CA5B9622D9A8AD002487BD /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		83CD9F7F22E72CF80017B757 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		83CD9F8022E72CF80017B757 /* ComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		83E68F9022E8004F0007BAA9 /* ComposeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		8BEC9F215F71DB5B38A9C652 /* Pods-weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.release.xcconfig"; sourceTree = "<group>"; };
 		C6C43AD83F869575A5F35288 /* Pods_weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -293,6 +295,7 @@
 			children = (
 				83CD9F7F22E72CF80017B757 /* ComposeViewController.swift */,
 				83CD9F8022E72CF80017B757 /* ComposeViewController.xib */,
+				83E68F9022E8004F0007BAA9 /* ComposeTextView.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				83003ADD22C669F000C83128 /* Popoveranimator.swift in Sources */,
 				830B801F22E40C5100315A83 /* PicCollectionView.swift in Sources */,
 				83B440E222C067E300409D70 /* DiscoverViewController.swift in Sources */,
+				83E68F9122E8004F0007BAA9 /* ComposeTextView.swift in Sources */,
 				834FB57D22C3812000652F5F /* PopViewController.swift in Sources */,
 				83B440E422C067F800409D70 /* ProfileViewController.swift in Sources */,
 				831DDFDA22BA8ED9009EF8AA /* UIBtton-Extension.swift in Sources */,
