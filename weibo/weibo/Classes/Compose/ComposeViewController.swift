@@ -30,15 +30,13 @@ class ComposeViewController: UIViewController {
         setupUI()
         //监听通知
         setupNotification()
-    
-        
     }
         
-        override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-            
-            textView.becomeFirstResponder()
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        textView.becomeFirstResponder()
+    }
     
     //移除通知
     deinit {
@@ -48,6 +46,7 @@ class ComposeViewController: UIViewController {
 
 //MARK:- 设置ui界面
 extension ComposeViewController {
+    //设置ui界面
     private func setupUI() {
         
         //更新title用户昵称
@@ -61,6 +60,9 @@ extension ComposeViewController {
         
         //监听点击添加图片的通知
         NotificationCenter.default.addObserver(self, selector: #selector(addPhotoClick), name: NSNotification.Name(rawValue: PicPickerAddPhotoNote), object: nil)
+        
+        //监听点击删除图片的通知
+        NotificationCenter.default.addObserver(self, selector: #selector(removePhotoClick), name: NSNotification.Name(rawValue: PicPickerRemovePhotoNote), object: nil)
     }
 }
 
@@ -76,24 +78,6 @@ extension ComposeViewController {
         print("发送")
     }
     
-    @objc private func keyboardWillChangeFrame(note : Notification) {
-        //获取动画执行的时间
-        let duration = note.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-        
-        //获取键盘最终y值
-        let endFrame = (note.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let y = endFrame.origin.y
-        
-        //计算工具栏距离底部的间距
-        let margin = UIScreen.main.bounds.height - y
-
-        //执行动画
-        toolBarBottomCons.constant = -margin
-        UIView.animate(withDuration: duration) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
     @IBAction func picPicker() {
         //退出键盘
         textView.resignFirstResponder()
@@ -107,6 +91,25 @@ extension ComposeViewController {
         }
         
         //addPhotoClick()
+    }
+    
+    //监听键盘改变，实现toolbar的bottom约束移动
+    @objc private func keyboardWillChangeFrame(note : Notification) {
+        //获取动画执行的时间
+        let duration = note.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        
+        //获取键盘最终y值
+        let endFrame = (note.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let y = endFrame.origin.y
+        
+        //计算工具栏距离底部的间距
+        let margin = UIScreen.main.bounds.height - y
+        
+        //执行动画
+        toolBarBottomCons.constant = -margin
+        UIView.animate(withDuration: duration) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
@@ -130,6 +133,24 @@ extension ComposeViewController {
         //弹出选择照片的控制器
         present(ipc, animated: true, completion: nil)
         
+    }
+    
+    @objc private func removePhotoClick(note : Notification) {
+        //获取image对象
+        guard let image = note.object as? UIImage else {
+            return
+        }
+        
+        //获取image对象所在下标值
+        guard let index = images.firstIndex(of: image) else {
+            return
+        }
+        
+        //将图片从数组中删除
+        images.remove(at: index)
+        
+        //重写赋值collectionview新的数组
+        picPickerView.images = images
     }
 }
 

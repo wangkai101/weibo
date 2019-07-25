@@ -15,6 +15,8 @@ let redirect_url = "http://www.520it.com"
 
 //MARK:- 选择照片的通知常量
 let PicPickerAddPhotoNote = "PicPickerAddPhotoNote"
+let PicPickerRemovePhotoNote = "PicPickerRemovePhotoNote"
+
 
 
 
