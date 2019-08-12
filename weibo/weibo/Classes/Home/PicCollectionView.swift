@@ -22,11 +22,12 @@ class PicCollectionView: UICollectionView {
         super.awakeFromNib()
         
         dataSource = self
+        delegate = self
     }
 }
 
 //MARK:- collectionView的数据源方法
-extension PicCollectionView : UICollectionViewDataSource {
+extension PicCollectionView : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return picURLs.count
     }
@@ -39,6 +40,14 @@ extension PicCollectionView : UICollectionViewDataSource {
         cell.picURL = picURLs[indexPath.item]
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //获取通知需要传递的参数
+        let userInfo : [String : Any] = [ShowPhotoBrowserIndexKey : indexPath, ShowPhotoBrowserUrlsKey : picURLs]
+        
+        //发出通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShowPhotoBrowserNote), object: nil, userInfo: userInfo)
     }
 }
 

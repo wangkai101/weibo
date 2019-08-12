@@ -19,6 +19,7 @@ class HomeViewController: BaseViewController {
     }
     private lazy var viewModels : [StatusViewModel] = [StatusViewModel]()
     private lazy var tipLabel : UILabel = UILabel()
+    private lazy var photoBrowserAnimator : PhotoBrowserAnimator = PhotoBrowserAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,9 @@ class HomeViewController: BaseViewController {
         
         //设置提示的Label
         setupTipLabel()
+        
+        //监听通知
+        setupNotication()
     }
 }
 
@@ -95,6 +99,10 @@ extension HomeViewController {
         tipLabel.isHidden = true
         
     }
+    
+    private func setupNotication() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showPhotoBrowser), name: NSNotification.Name(rawValue: ShowPhotoBrowserNote), object: nil)
+    }
 }
 
 
@@ -115,6 +123,26 @@ extension HomeViewController {
         
         //弹出控制器
         present(popoverVc, animated: true, completion: nil)
+    }
+    
+    @objc private func showPhotoBrowser(note : NSNotification) {
+        //取出数据
+        let indexPath = note.userInfo![ShowPhotoBrowserIndexKey] as! NSIndexPath
+        let picURLs = note.userInfo![ShowPhotoBrowserUrlsKey] as! [URL]
+        
+        
+        //创建控制器
+        let photoBrowserVc = PhotoBrowserController(indexPath: indexPath, picURLs: picURLs)
+        
+        //设置modal样式
+        photoBrowserVc.modalPresentationStyle = .custom
+        
+        //设置转场的代理
+        photoBrowserVc.transitioningDelegate = photoBrowserAnimator
+        
+        //以model方式弹出控制器
+        present(photoBrowserVc, animated: true, completion: nil)
+        
     }
 }
 

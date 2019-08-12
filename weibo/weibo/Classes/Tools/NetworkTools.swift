@@ -85,7 +85,7 @@ extension NetworkTools {
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         
         //获取请求的参数
-        let parameters = ["access_token" : (UserAccountTool.shareIntance.account?.access_token)!, "since_id" : "\(since_id)", "max_id" : "\(max_id)"]
+        let parameters = ["access_token" : (UserAccountTool.shareIntance.account?.access_token)!, "since_i d" : "\(since_id)", "max_id" : "\(max_id)"]
         
         //请求数据
         request(methodType: .GET, urlString: urlString, parameters: parameters) { (result, error) in
@@ -97,6 +97,29 @@ extension NetworkTools {
             
             //将数组数据回调给外界控制器
             finished(resultDict["statuses"] as? [[String : Any]], error)
+        }
+        
+    }
+}
+
+
+//MARK:- 发送微博
+extension NetworkTools {
+    func sendStatus(statusText : String, isSuccess : @escaping (Bool) -> ()) {
+        //获取请求的url
+        let urlString = "https://api.weibo.com/2/statuses/share.json"
+        
+        //拿到请求的参数
+        let parameters = ["access_token" : (UserAccountTool.shareIntance.account?.access_token)!, "status" : statusText]
+        
+        //请求数据
+        request(methodType: .POST, urlString: urlString, parameters: parameters) { (result, error) in
+            print(result)
+            if result != nil {
+                isSuccess(true)
+            } else {
+                isSuccess(false)
+            }
         }
         
     }

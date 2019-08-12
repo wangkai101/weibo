@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ComposeViewController: UIViewController {
-    
+    //MARK:-懒加载属性
     private lazy var images : [UIImage] = [UIImage]()
+    private lazy var emotionVc : EmitionController = EmitionController {[weak self] (emoticon) in
+        self?.textView.insertEmoticon(emoticon: emoticon)
+        self?.textViewDidChange(self!.textView)
+    }
     
     @IBOutlet weak var textView: ComposeTextView!
     @IBOutlet weak var sendItemBtn: UIBarButtonItem!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var picPickerView: PicPickerCollectionView!
+    
     
 
     //约束的属性
@@ -75,7 +81,23 @@ extension ComposeViewController {
     }
     
     @IBAction func sendItemClick(_ sender: Any) {
-        print("发送")
+        //退出键盘
+        textView.resignFirstResponder()
+        
+        //获取发送微博的微博正文
+        let statusText = textView.getEmoticonString()
+        
+        //调用接口发送微博
+        NetworkTools.shareInstance.sendStatus(statusText: statusText) { (isSuccess) in
+            if !isSuccess {
+                SVProgressHUD.showError(withStatus: "发送微博失败")
+                return
+            }
+            
+            SVProgressHUD.showSuccess(withStatus: "发送微博成功")
+            
+        }
+        
     }
     
     @IBAction func picPicker() {
@@ -91,6 +113,17 @@ extension ComposeViewController {
         }
         
         //addPhotoClick()
+    }
+    
+    @IBAction func emoticonBtnClick() {
+        //退出键盘
+        textView.resignFirstResponder()
+        
+        //切换键盘
+        textView.inputView = textView.inputView != nil ? nil : emotionVc.view
+        
+        //弹出键盘
+        textView.becomeFirstResponder()
     }
     
     //监听键盘改变，实现toolbar的bottom约束移动
